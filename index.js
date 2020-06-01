@@ -61,11 +61,11 @@ PR By:          ${ghactor}
             return ipstatus = 'success' ?
 `
 ✅ ¡Nuevas builds de desarrollo!
-Los cambios de ${ghactor} ya están disponibles. Descárgalos [aquí](https://github.com/${repo}/actions/runs/${runid})
+Los cambios de ${ghactor} ya están disponibles. Descárgalos [aquí](https://github.com/${repo}/actions/runs/)
 `:
 `
 ❌ Algo ha ido mal con las builds...
-Seguramente culpa de ${ghactor}. Revisa los logs [aquí](https://github.com/${repo}/actions/runs/${runid})
+Seguramente culpa de ${ghactor}. Revisa los logs [aquí](https://github.com/${repo}/actions/runs/)
 `
         default:
             return `
