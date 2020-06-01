@@ -21,19 +21,6 @@ const {
     GITHUB_WORKFLOW: ghwrkflw// Workflow Name
 } = process.env;
 
-const pushMessage = () => {
-    msg = ""
-        if (platform == 'StandaloneOSX') msg += '🍏'
-        else if (platform == 'StandaloneWindows64') msg += '🖥️'
-        else if (platform == 'StandaloneLinux64') msg += '🐧'
-
-        if (ipstatus = 'success') msg += `✅ Nueva dev build [aquí](https://github.com/${repo}/actions/runs/${runid})`
-        else msg += `❌ Error produciendo dev build
-        [Ver logs](https://github.com/${repo}/actions/runs/${runid})`
-
-        return msg
-}
-
 const bot = new Bot(tgtoken)
 
 const evresp = (gevent) => {
@@ -72,7 +59,7 @@ PR By:          ${ghactor}
 [Build log here](https://github.com/${repo}/commit/${sha}/checks)`
 
         case "push":
-            return pushMessage()
+            return "PUSH!!"
 // `
 // ✅ ¡Nuevas builds de desarrollo!
 // Los cambios de ${ghactor} ya están disponibles. Descárgalos [aquí](https://github.com/${repo}/actions/runs/)
