@@ -23,7 +23,7 @@ const {
 
 const bot = new Bot(tgtoken)
 
-let evresp = (gevent) => {
+const evresp = (gevent) => {
     switch (gevent) {
 
         case "issues":
@@ -103,5 +103,5 @@ Tag:        ${process.env.GITHUB_REF}
 //         return msg
 // }
 
-let output = evresp(ghevent)
+const output = evresp(ghevent)
 bot.sendMessage(chatid,output,{parse_mode : "Markdown"})
