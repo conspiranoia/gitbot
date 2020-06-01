@@ -59,7 +59,7 @@ PR By:          ${ghactor}
 [Build log here](https://github.com/${repo}/commit/${sha}/checks)`
 
         case "push":
-            return "PUSH!!!"
+            return GetPushMessage()
 // `
 // ✅ ¡Nuevas builds de desarrollo!
 // Los cambios de ${ghactor} ya están disponibles. Descárgalos [aquí](https://github.com/${repo}/actions/runs/)
@@ -89,18 +89,17 @@ Tag:        ${process.env.GITHUB_REF}
     }
 }
 
-// const GetPushMessage = () => {
-//     msg = ""
-//         if (platform == 'StandaloneOSX') msg += '🍏'
-//         else if (platform == 'StandaloneWindows64') msg += '🖥️'
-//         else if (platform == 'StandaloneLinux64') msg += '🐧'
+let GetPushMessage = () => {
+    msg = ""
+        if (platform == 'StandaloneOSX') msg += '🍏'
+        else if (platform == 'StandaloneWindows64') msg += '🖥️'
+        else if (platform == 'StandaloneLinux64') msg += '🐧'
 
-//         if (ipstatus = 'success') msg += `✅ Nueva dev build [aquí](https://github.com/${repo}/actions/runs/${runid})`
-//         else msg += `❌ Error produciendo dev build
-//         [Ver logs](https://github.com/${repo}/actions/runs/${runid})`
+        if (ipstatus = 'success') msg += `✅ Nueva dev build [aquí](https://github.com/${repo}/actions/runs/${runid})`
+        else msg += `❌ Error produciendo dev build [Ver logs](https://github.com/${repo}/actions/runs/${runid})`
 
-//         return msg
-// }
+        return msg
+}
 
 let output = evresp(ghevent)
 bot.sendMessage(chatid,output,{parse_mode : "Markdown"})
