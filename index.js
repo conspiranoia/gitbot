@@ -90,7 +90,7 @@ Tag:        ${process.env.GITHUB_REF}
 }
 
 let GetPushMessage = () => {
-    msg = ""
+    let msg = ""
         if (platform == 'StandaloneOSX') msg += '🍏'
         else if (platform == 'StandaloneWindows64') msg += '🖥️'
         else if (platform == 'StandaloneLinux64') msg += '🐧'
