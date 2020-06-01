@@ -14,9 +14,9 @@ inputs:
   platform:
     description: 'Build platform'
     required: true
-  #run_id:
-  #  description: 'Github run id'
-  #  default: ${{ github.run_id }}
+  run_id:
+    description: 'Github run id'
+    default: ${{ github.run_id }}
   iu_title: 
     description: 'Issue Title'
     default: ${{ github.event.issue.title }}

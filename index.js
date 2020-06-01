@@ -5,7 +5,7 @@ const {
     INPUT_TOKEN: tgtoken,//Telegram api token
     INPUT_CHAT: chatid,// Telegram Chat ID
     INPUT_PLATFORM: platform,
-    //INPUT_RUN_ID: runid,// Github run ID
+    INPUT_RUN_ID: runid,// Github run ID
     INPUT_IU_TITLE: ititle,// Issue title
     INPUT_IU_NUM: inum,// Issue Number
     INPUT_IU_ACTOR: iactor,// Issue made by
@@ -20,6 +20,19 @@ const {
     GITHUB_SHA: sha,// Commit ID
     GITHUB_WORKFLOW: ghwrkflw// Workflow Name
 } = process.env;
+
+const pushMessage = () => {
+    msg = ""
+        if (platform == 'StandaloneOSX') msg += '🍏'
+        else if (platform == 'StandaloneWindows64') msg += '🖥️'
+        else if (platform == 'StandaloneLinux64') msg += '🐧'
+
+        if (ipstatus = 'success') msg += `✅ Nueva dev build [aquí](https://github.com/${repo}/actions/runs/${runid})`
+        else msg += `❌ Error produciendo dev build
+        [Ver logs](https://github.com/${repo}/actions/runs/${runid})`
+
+        return msg
+}
 
 const bot = new Bot(tgtoken)
 
@@ -59,7 +72,7 @@ PR By:          ${ghactor}
 [Build log here](https://github.com/${repo}/commit/${sha}/checks)`
 
         case "push":
-            return platform
+            return pushMessage()
 // `
 // ✅ ¡Nuevas builds de desarrollo!
 // Los cambios de ${ghactor} ya están disponibles. Descárgalos [aquí](https://github.com/${repo}/actions/runs/)
