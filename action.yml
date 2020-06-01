@@ -11,6 +11,9 @@ inputs:
   status:
     description: 'Job status'
     required: true
+  run:
+    description: 'Run id'
+    default: ${{ github.run_id }}
   iu_title: 
     description: 'Issue Title'
     default: ${{ github.event.issue.title }}

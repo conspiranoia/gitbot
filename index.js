@@ -1,7 +1,7 @@
 require("dotenv").config
 const Bot = require('node-telegram-bot-api');
 const {
-    INPUT_STATUS: ipstatus,
+    INPUT_STATUS: ipstatus,//Job status
     INPUT_TOKEN: tgtoken,//Telegram api token
     INPUT_CHAT: chatid,// Telegram Chat ID
     INPUT_IU_TITLE: ititle,// Issue title
@@ -12,6 +12,7 @@ const {
     INPUT_PR_STATE: prstate,// PR Opened, reponed or closed
     INPUT_PR_TITLE: ptitle,// PR Title
     INPUT_PR_BODY: pbody,// Body of the PR
+    GITHUB_RUN_ID: ghrunid,
     GITHUB_EVENT_NAME: ghevent,// Name of the trigger event
     GITHUB_REPOSITORY: repo,// Repository the trigger was made from
     GITHUB_ACTOR: ghactor,// User who triggered the action
@@ -55,6 +56,17 @@ PR By:          ${ghactor}
 [Link to Issue](https://github.com/${repo}/pull/${pnum})
 [Link to Repo ](https://github.com/${repo}/)
 [Build log here](https://github.com/${repo}/commit/${sha}/checks)`
+
+        case "push":
+            return ipstatus = 'success' ?
+`
+✅ ¡Nuevas builds de desarrollo!
+Los cambios de ${ghactor} ya están disponibles. Descárgalos [aquí](https://github.com/${repo}/actions/runs/${ghrunid})
+`:
+`
+❌ Algo ha ido mal con las builds...
+Seguramente culpa de ${ghactor}. Revisa los logs [aquí](https://github.com/${repo}/actions/runs/${ghrunid})
+`
         default:
             return `
 ⬆️⇅⬆️⇅
