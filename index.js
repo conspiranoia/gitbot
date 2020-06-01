@@ -23,7 +23,7 @@ const {
 
 const bot = new Bot(tgtoken)
 
-const evresp = (gevent) => {
+var evresp = (gevent) => {
     switch (gevent) {
 
         case "issues":
