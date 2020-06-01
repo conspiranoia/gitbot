@@ -23,7 +23,7 @@ const {
 
 const bot = new Bot(tgtoken)
 
-const evresp = (gevent) => {
+function evresp(gevent) {
     switch (gevent) {
 
         case "issues":
@@ -59,9 +59,9 @@ PR By:          ${ghactor}
 [Build log here](https://github.com/${repo}/commit/${sha}/checks)`
 
         case "push":
-            return `
-New *${platform}* dev build completed with *${ipstatus}* [+Info](https://github.com/${repo}/actions/runs/${runid})
-            `
+            return GetPushMessage() //`
+// New *${platform}* dev build completed with *${ipstatus}* [+Info](https://github.com/${repo}/actions/runs/${runid})
+//             `
 // `
 // ✅ ¡Nuevas builds de desarrollo!
 // Los cambios de ${ghactor} ya están disponibles. Descárgalos [aquí](https://github.com/${repo}/actions/runs/)
@@ -91,17 +91,15 @@ Tag:        ${process.env.GITHUB_REF}
     }
 }
 
-// let GetPushMessage = () => {
-//     let msg = ""
-//         if (platform == 'StandaloneOSX') msg += '🍏'
-//         else if (platform == 'StandaloneWindows64') msg += '🖥️'
-//         else if (platform == 'StandaloneLinux64') msg += '🐧'
-
-//         if (ipstatus = 'success') msg += `✅ Nueva dev build [aquí](https://github.com/${repo}/actions/runs/${runid})`
-//         else msg += `❌ Error produciendo dev build [Ver logs](https://github.com/${repo}/actions/runs/${runid})`
-
-//         return msg
-// }
+function GetPushMessage() {
+    let msg = ""
+    if (platform == 'StandaloneOSX') msg += '🍏'
+    else if (platform == 'StandaloneWindows64') msg += '🖥️'
+    else if (platform == 'StandaloneLinux64') msg += '🐧'
+    if (ipstatus = 'success') msg += `✅ Nueva dev build [aquí](https://github.com/${repo}/actions/runs/${runid})`
+    else msg += `❌ Error produciendo dev build [Ver logs](https://github.com/${repo}/actions/runs/${runid})`
+    return msg
+}
 
 const output = evresp(ghevent)
 bot.sendMessage(chatid,output,{parse_mode : "Markdown"})
