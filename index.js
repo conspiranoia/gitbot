@@ -59,7 +59,7 @@ PR By:          ${ghactor}
 [Build log here](https://github.com/${repo}/commit/${sha}/checks)`
 
         case "push":
-            return GetPushMessage()
+            return "PUSH!"
 // `
 // ✅ ¡Nuevas builds de desarrollo!
 // Los cambios de ${ghactor} ya están disponibles. Descárgalos [aquí](https://github.com/${repo}/actions/runs/)
