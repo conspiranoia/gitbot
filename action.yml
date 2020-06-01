@@ -11,7 +11,7 @@ inputs:
   status:
     description: 'Job status'
     required: true
-  run:
+  workflow_run:
     description: 'Run id'
     default: ${{ github.run_id }}
   iu_title: 
