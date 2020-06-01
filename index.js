@@ -4,7 +4,7 @@ const {
     INPUT_STATUS: ipstatus,//Job status
     INPUT_TOKEN: tgtoken,//Telegram api token
     INPUT_CHAT: chatid,// Telegram Chat ID
-    INPUT_WORKFLOW_RUN: ghrunid,
+    //INPUT_WORKFLOW_RUN: runid,
     INPUT_IU_TITLE: ititle,// Issue title
     INPUT_IU_NUM: inum,// Issue Number
     INPUT_IU_ACTOR: iactor,// Issue made by
@@ -61,11 +61,11 @@ PR By:          ${ghactor}
             return ipstatus = 'success' ?
 `
 ✅ ¡Nuevas builds de desarrollo!
-Los cambios de ${ghactor} ya están disponibles. Descárgalos [aquí](https://github.com/${repo}/actions/runs/${ghrunid})
+Los cambios de ${ghactor} ya están disponibles. Descárgalos [aquí](https://github.com/${repo}/actions/runs/${runid})
 `:
 `
 ❌ Algo ha ido mal con las builds...
-Seguramente culpa de ${ghactor}. Revisa los logs [aquí](https://github.com/${repo}/actions/runs/${ghrunid})
+Seguramente culpa de ${ghactor}. Revisa los logs [aquí](https://github.com/${repo}/actions/runs/${runid})
 `
         default:
             return `
