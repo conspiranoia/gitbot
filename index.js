@@ -4,7 +4,7 @@ const {
     INPUT_STATUS: ipstatus,//Job status
     INPUT_TOKEN: tgtoken,//Telegram api token
     INPUT_CHAT: chatid,// Telegram Chat ID
-    //INPUT_PLATFORM: platform,
+    INPUT_PLATFORM: platform,
     //INPUT_RUN_ID: runid,// Github run ID
     INPUT_IU_TITLE: ititle,// Issue title
     INPUT_IU_NUM: inum,// Issue Number
