@@ -1,0 +1,22 @@
+{
+  "name": "gitbot",
+  "version": "1.0.0",
+  "description": "Telegram bot for github",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jodebu/gitbot"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "ncc build index.js -C -m -o dist"
+  },
+  "author": "Yayo Acosta",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-telegram-bot-api": "^0.50.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.3"
+  }
+}
