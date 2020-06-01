@@ -23,7 +23,7 @@ const {
 
 const bot = new Bot(tgtoken)
 
-const evresp = (gevent) => {
+let evresp = (gevent) => {
     switch (gevent) {
 
         case "issues":
@@ -59,7 +59,7 @@ PR By:          ${ghactor}
 [Build log here](https://github.com/${repo}/commit/${sha}/checks)`
 
         case "push":
-            return "PUSH!!"
+            return "PUSH!!!"
 // `
 // ✅ ¡Nuevas builds de desarrollo!
 // Los cambios de ${ghactor} ya están disponibles. Descárgalos [aquí](https://github.com/${repo}/actions/runs/)
@@ -102,5 +102,5 @@ Tag:        ${process.env.GITHUB_REF}
 //         return msg
 // }
 
-const output = evresp(ghevent)
+let output = evresp(ghevent)
 bot.sendMessage(chatid,output,{parse_mode : "Markdown"})
