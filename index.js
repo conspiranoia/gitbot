@@ -4,8 +4,8 @@ const {
     INPUT_STATUS: ipstatus,//Job status
     INPUT_TOKEN: tgtoken,//Telegram api token
     INPUT_CHAT: chatid,// Telegram Chat ID
-    INPUT_PLATFORM: platform,
-    INPUT_RUN_ID: runid,// Github run ID
+    //INPUT_PLATFORM: platform,
+    //INPUT_RUN_ID: runid,// Github run ID
     INPUT_IU_TITLE: ititle,// Issue title
     INPUT_IU_NUM: inum,// Issue Number
     INPUT_IU_ACTOR: iactor,// Issue made by
@@ -89,18 +89,18 @@ Tag:        ${process.env.GITHUB_REF}
     }
 }
 
-const GetPushMessage = () => {
-    msg = ""
-        if (platform == 'StandaloneOSX') msg += '🍏'
-        else if (platform == 'StandaloneWindows64') msg += '🖥️'
-        else if (platform == 'StandaloneLinux64') msg += '🐧'
+// const GetPushMessage = () => {
+//     msg = ""
+//         if (platform == 'StandaloneOSX') msg += '🍏'
+//         else if (platform == 'StandaloneWindows64') msg += '🖥️'
+//         else if (platform == 'StandaloneLinux64') msg += '🐧'
 
-        if (ipstatus = 'success') msg += `✅ Nueva dev build [aquí](https://github.com/${repo}/actions/runs/${runid})`
-        else msg += `❌ Error produciendo dev build
-        [Ver logs](https://github.com/${repo}/actions/runs/${runid})`
+//         if (ipstatus = 'success') msg += `✅ Nueva dev build [aquí](https://github.com/${repo}/actions/runs/${runid})`
+//         else msg += `❌ Error produciendo dev build
+//         [Ver logs](https://github.com/${repo}/actions/runs/${runid})`
 
-        return msg
-}
+//         return msg
+// }
 
 const output = evresp(ghevent)
 bot.sendMessage(chatid,output,{parse_mode : "Markdown"})
