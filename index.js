@@ -82,13 +82,16 @@ Tag:        ${process.env.GITHUB_REF}
 }
 
 function GetPushMessage() {
-    let msg = ""
-    if (platform == 'StandaloneOSX') msg += '🍏'
-    else if (platform == 'StandaloneWindows64') msg += '🖥️'
-    else if (platform == 'StandaloneLinux64') msg += '🐧'
-    if (ipstatus == 'success') msg += `✅ Nueva dev build [aquí](https://github.com/${repo}/actions/runs/${runid})`
-    else msg += `❌ Error produciendo dev build [Ver logs](https://github.com/${repo}/actions/runs/${runid})`
+    let msg
+    if (ipstatus == 'success') msg = `✅ Nueva dev build para ${GetplatformEmoji()} [aquí](https://github.com/${repo}/actions/runs/${runid})`
+    else msg = `❌ Error en dev build para ${GetplatformEmoji()}. [Ver logs](https://github.com/${repo}/actions/runs/${runid})`
     return msg
+
+    function GetplatformEmoji() {
+        if (platform == 'StandaloneOSX') return '🍏'
+        if (platform == 'StandaloneWindows64') return '🖥️'
+        if (platform == 'StandaloneLinux64') return '🐧'
+    }
 }
 
 const output = evresp(ghevent)
