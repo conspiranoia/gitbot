@@ -14,7 +14,9 @@ inputs:
   platform:
     description: 'Build platform'
     required: true
-  link: 'Link to uploaded artifact'
+  link: link
+    description: 'Link to uploaded artifact'
+    required: true
   run_id:
     description: 'Github run id'
     default: ${{ github.run_id }}
