@@ -84,7 +84,7 @@ Tag:        ${process.env.GITHUB_REF}
 function GetPushMessage() {
     let msg
     if (ipstatus == 'success') msg = `✅ Nueva dev build para ${GetplatformEmoji()} [aquí](https://github.com/${repo}/actions/runs/${runid})`
-    else msg = `❌ Error en dev build para ${GetplatformEmoji()}. [Ver logs](https://github.com/${repo}/actions/runs/${runid})`
+    else msg = `❌ Error en dev build para ${GetplatformEmoji()} [Ver logs](https://github.com/${repo}/actions/runs/${runid})`
     return msg
 
     function GetplatformEmoji() {
