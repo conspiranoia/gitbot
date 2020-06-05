@@ -93,6 +93,8 @@ function GetPushMessage() {
         if (platform == 'StandaloneOSX') return '🍏'
         if (platform == 'StandaloneWindows64') return '🖥️'
         if (platform == 'StandaloneLinux64') return '🐧'
+        if (platform == 'Android') return '🤖'
+        if (platform == 'iOS') return '📱'
     }
 }
 
