@@ -6,6 +6,7 @@ const {
     INPUT_CHAT: chatid,// Telegram Chat ID
     INPUT_PLATFORM: platform,
     INPUT_LINK: link,
+    INPUT_BRANCH: branch,
     INPUT_RUN_ID: runid,// Github run ID
     INPUT_IU_TITLE: ititle,// Issue title
     INPUT_IU_NUM: inum,// Issue Number
@@ -84,8 +85,8 @@ Tag:        ${process.env.GITHUB_REF}
 
 function GetPushMessage() {
     let msg
-    if (ipstatus == 'success') msg = `✅ Nueva dev build para ${GetplatformEmoji()} [aquí](${link})`
-    else msg = `❌ Error en dev build para ${GetplatformEmoji()} [Ver logs](https://github.com/${repo}/actions/runs/${runid})`
+    if (ipstatus == 'success') msg = `${GetplatformEmoji()} ✔️ (${branch}) [Download](${link})`
+    else msg = `${GetplatformEmoji()} ❌ (${branch}) [Logs](https://github.com/${repo}/actions/runs/${runid})`
     return msg
 
     function GetplatformEmoji() {

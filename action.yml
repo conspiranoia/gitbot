@@ -14,6 +14,9 @@ inputs:
   platform:
     description: 'Build platform'
     required: true
+  branch:
+    description: 'Branch name'
+    required: true
   link:
     description: 'Link to uploaded artifact'
     required: true
